@@ -1,9 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Lab2.MathActivity">
+    tools:context=".Lab2.MathActivity"
+    android:orientation="vertical"
+    android:padding="12dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tính thể tích lập phương"
+        android:gravity="center"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:id="@+id/ed_edge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="cạnh"
+        android:minHeight="48dp"
+        android:inputType="number"/>
+    <Button
+        android:id="@+id/btn_edge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send"/>
+    <TextView
+        android:id="@+id/tv_volume_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Result"
+        android:layout_marginTop="8dp"
+        android:textSize="18dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Giải phương trình bậc 2"
+        android:gravity="center"
+        android:layout_marginTop="12dp"/>
+    <EditText
+        android:id="@+id/ed_a"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="a"
+        android:inputType="number"
+        android:minHeight="48dp"/>
+    <EditText
+        android:id="@+id/ed_b"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="b"
+        android:inputType="number"
+        android:minHeight="48dp"/>
+    <EditText
+        android:id="@+id/ed_c"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="c"
+        android:inputType="number"
+        android:minHeight="48dp"/>
+    <Button
+        android:id="@+id/btn_quadratic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send"/>
+    <TextView
+        android:id="@+id/tv_quadratic_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Result"
+
+        android:layout_marginTop="8dp"
+        android:textSize="18dp"/>
+</LinearLayout>
