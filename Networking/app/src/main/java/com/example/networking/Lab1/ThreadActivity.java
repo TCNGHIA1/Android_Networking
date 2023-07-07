@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.networking.R;
 import com.example.networking.untils.ImageListener;
+import com.example.networking.untils.LoadBitMap;
 
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -42,29 +43,13 @@ public class ThreadActivity extends AppCompatActivity implements ImageListener {
     }
 
     //load image from server
-    private Bitmap loadImage(String link){
-        URL url;
-        Bitmap bmp = null;
-        try{
-            url = new URL(link);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setDoInput(true);
-            connection.connect();
-            InputStream inputStream = connection.getInputStream();
-            bmp = BitmapFactory.decodeStream(inputStream);
-            inputStream.close();
-        }catch(Exception ex){
-            ex.printStackTrace();
-        }
-        return bmp;
-    }
 
     //click button load image
     private void clickLoadImage(View view){
         Thread myThread = new Thread(new Runnable() {
             @Override
             public void run() {
-                Bitmap bitmap =  loadImage("https://res.cloudinary.com/dg1nlrihe/image/upload/v1686218622/PorterAnime/porter_Youkoso.Jitsuryoku.Shijou.Shugi.no.Kyoushitsu.e_vhu2gn.jpg");
+                Bitmap bitmap = LoadBitMap.setBitMap("https://res.cloudinary.com/dg1nlrihe/image/upload/v1686218622/PorterAnime/porter_Youkoso.Jitsuryoku.Shijou.Shugi.no.Kyoushitsu.e_vhu2gn.jpg");
                 img.post(new Runnable() {
                     @Override
                     public void run() {

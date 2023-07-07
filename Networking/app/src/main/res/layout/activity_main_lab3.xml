@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Lab3.MainLab3Activity"
+    android:orientation="vertical"
+    android:padding="24dp">
+    <Button
+        android:id="@+id/parser_normal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Parser normal"/>
+    <Button
+        android:id="@+id/parser_volley"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Parser volley"/>
+    <Button
+        android:id="@+id/parser_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Parser with Image"/>
+</LinearLayout>
