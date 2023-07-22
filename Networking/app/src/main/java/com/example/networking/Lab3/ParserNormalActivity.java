@@ -10,15 +10,14 @@ import android.util.Log;
 import android.widget.ListView;
 
 import com.example.networking.R;
-import com.example.networking.adapter.ProductAdapter;
-import com.example.networking.models.Product;
+import com.example.networking.adapter.ContactAdapter;
+import com.example.networking.models.Contact;
 import com.example.networking.untils.HttpHandler;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ParserNormalActivity extends AppCompatActivity {
     ListView listView;
@@ -32,12 +31,12 @@ public class ParserNormalActivity extends AppCompatActivity {
 }
 
 class GetProductsAsyncTask extends AsyncTask<Void,Void,Void> {
-    ArrayList<Product> arrayList;
+    ArrayList<Contact> arrayList;
     ProgressDialog dialog;
     ListView listView;
-    ProductAdapter adapter;
+    ContactAdapter adapter;
     Context context;
-    public static String url = "http://192.168.15.136:3000/products/all";
+    public static String url = "http://192.168.15.136:5000/api/lab3/contacts";
 
     public GetProductsAsyncTask(Context context,ListView listView){
         this.context = context;
@@ -59,27 +58,30 @@ class GetProductsAsyncTask extends AsyncTask<Void,Void,Void> {
         String jsonStr = handler.makeServiceCall(url);
         if(jsonStr!=null){
         try{
-//            JSONObject jsonObject = new JSONObject(jsonStr);
             //Getting
-            JSONArray products = new JSONArray(jsonStr);
+            JSONObject jsonArray = new JSONObject(jsonStr);
+            JSONArray contacts = jsonArray.getJSONArray("contacts");
             //looping
-            for(int i = 0;i<products.length();i++){
-                JSONObject c= products.getJSONObject(i);
+            for(int i = 0;i<contacts.length();i++){
+                JSONObject c= contacts.getJSONObject(i);
                 String id = c.getString("id");
                 String name = c.getString("name");
-                String category = c.getString("category");
-                String price = c.getString("price");
-                String description = c.getString("description");
-                String imageURL = c.getString("imageURL");
+                String email = c.getString("email");
+                JSONObject phone = c.getJSONObject("phone");
 
-                Product product = new Product();
-                product.setId(Integer.parseInt(id));
-                product.setName(name);
-                product.setCategory(category);
-                product.setPrice(price);
-                product.setDescription(description);
-                product.setImageUrl(imageURL);
-                arrayList.add(product);
+                String mobile = phone.getString("mobile");
+                String home = phone.getString("home");
+                String office = phone.getString("office");
+
+
+                Contact contact = new Contact();
+                contact.setId(id);
+                contact.setName(name);
+                contact.setEmail(email);
+                contact.setMobile(mobile);
+                contact.setOffice(office);
+                contact.setHome(home);
+                arrayList.add(contact);
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -97,7 +99,7 @@ class GetProductsAsyncTask extends AsyncTask<Void,Void,Void> {
         if(dialog.isShowing()){
             dialog.dismiss();
         }
-        adapter= new ProductAdapter(context,arrayList);
+        adapter= new ContactAdapter(context,arrayList);
         listView.setAdapter(adapter);
     }
 

@@ -62,7 +62,7 @@ public class MathActivity extends AppCompatActivity {
 class VolumeAsyncTask extends AsyncTask<String,Void,String>{
     TextView tv_result;
     ProgressDialog dialog;
-    String urlStr = "http://192.168.15.136:3000/api/lab2/cube/volume";
+    String urlStr = "http://192.168.15.136:5000/api/lab2/cube/volume";
     public VolumeAsyncTask(Context context,TextView tv_result){
         dialog = new ProgressDialog(context);
         this.tv_result = tv_result;
@@ -117,7 +117,7 @@ class VolumeAsyncTask extends AsyncTask<String,Void,String>{
 class QuadraticAsyncTask extends AsyncTask<String,Void,String>{
     TextView tv_result;
     ProgressDialog dialog;
-    String urlStr = "http://192.168.15.136:3000/api/lab2/quadratic";
+    String urlStr = "http://192.168.15.136:5000/api/lab2/quadratic";
     public QuadraticAsyncTask(Context context,TextView tv_result){
         dialog = new ProgressDialog(context);
         this.tv_result = tv_result;

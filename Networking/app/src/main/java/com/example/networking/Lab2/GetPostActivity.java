@@ -55,7 +55,7 @@ public class GetPostActivity extends AppCompatActivity{
 }
 
     class GetDataAsyncTask extends AsyncTask<String,Void,String>{
-        String urlStr = "http://192.168.15.136:3000/api/lab2/rectangle/get";
+        String urlStr = "http://192.168.15.136:5000/api/lab2/rectangle/get";
 
         TextView tvResult;
     ProgressDialog dialog;
@@ -117,7 +117,7 @@ public class GetPostActivity extends AppCompatActivity{
 
 //PORT data from 2 Edittext
 class PostDataAsyncTask extends AsyncTask<String,Void,String>{
-    String urlStr = "http://192.168.15.136:3000/api/lab2/rectangle/post";
+    String urlStr = "http://192.168.15.136:5000/api/lab2/rectangle/post";
     TextView tvResult;
     ProgressDialog dialog;
 

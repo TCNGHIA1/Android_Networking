@@ -1,10 +1,4 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-
-const route = express();
-
-route.use(bodyParser.urlencoded({ extended: true }));
-route.use(bodyParser.json());
+const route = require("express")();
 
 //xử lý yêu cầu POST width và height từ client
 route.post("/rectangle/post", (req, res) => {
@@ -53,11 +47,11 @@ route.post("/quadratic", (req, res) => {
     if (delta < 0) {
       result = "Vô số nghiệm";
     } else if (delta == 0) {
-      result = `Có nghiệm kép ${numberFix((-b / (2 * a)))}`;
+      result = `Có nghiệm kép ${numberFix(-b / (2 * a))}`;
     } else {
       let x1 = (-b + Math.sqrt(delta)) / (2 * a);
       let x2 = (-b - Math.sqrt(delta)) / (2 * a);
-      result = `Có hai nghiệm là:${numberFix( x1 )} và ${numberFix( x2 )}`;
+      result = `Có hai nghiệm là:${numberFix(x1)} và ${numberFix(x2)}`;
     }
   }
   res.send(result);

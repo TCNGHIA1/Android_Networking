@@ -8,15 +8,15 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.networking.R;
-import com.example.networking.models.Product;
+import com.example.networking.models.Contact;
 
 import java.util.ArrayList;
 
-public class ProductAdapter extends BaseAdapter {
+public class ContactAdapter extends BaseAdapter {
     Context context;
-    ArrayList<Product> arrayList;
+    ArrayList<Contact> arrayList;
 
-    public ProductAdapter(Context context, ArrayList<Product> arrayList){
+    public ContactAdapter(Context context, ArrayList<Contact> arrayList){
         this.context = context;
         this.arrayList = arrayList;
     }
@@ -36,7 +36,7 @@ public class ProductAdapter extends BaseAdapter {
         return 0;
     }
     public static class ViewHolder{
-        TextView tv_name,tv_category,tv_price;
+        TextView tv_name,tv_category,tv_price,tv_mobile,tv_office;
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -48,14 +48,18 @@ public class ProductAdapter extends BaseAdapter {
             holder.tv_name = convertView.findViewById(R.id.tv_name);
             holder.tv_category = convertView.findViewById(R.id.tv_category);
             holder.tv_price = convertView.findViewById(R.id.tv_price);
+            holder.tv_mobile = convertView.findViewById(R.id.tv_mobile);
+            holder.tv_office = convertView.findViewById(R.id.tv_office);
             convertView.setTag(holder);
         }else{
             holder =(ViewHolder) convertView.getTag();
         }
-        Product product = arrayList.get(position);
-        holder.tv_name.setText(product.getName());
-        holder.tv_category.setText(product.getCategory());
-        holder.tv_price.setText(product.getPrice());
+        Contact contact = arrayList.get(position);
+        holder.tv_name.setText(contact.getName());
+        holder.tv_category.setText(contact.getEmail());
+        holder.tv_price.setText(contact.getGender());
+        holder.tv_mobile.setText(contact.getMobile());
+        holder.tv_office.setText(contact.getOffice());
         return convertView;
     }
 }

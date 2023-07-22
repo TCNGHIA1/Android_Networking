@@ -32,4 +32,28 @@
         android:paddingVertical="4dp"
         android:paddingStart="8dp"
         android:textColor="#5d5d5d"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Phone"
+        android:textStyle="bold"
+        android:paddingVertical="4dp"
+        android:paddingStart="8dp"
+        android:textColor="#5d5d5d"/>
+    <TextView
+        android:id="@+id/tv_mobile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="mobile"
+        android:paddingVertical="4dp"
+        android:paddingStart="16dp"
+        android:textColor="#5d5d5d"/>
+    <TextView
+        android:id="@+id/tv_office"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="office"
+        android:paddingVertical="4dp"
+        android:paddingStart="16dp"
+        android:textColor="#5d5d5d"/>
 </LinearLayout>

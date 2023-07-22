@@ -1,12 +1,8 @@
 package com.example.networking.adapter;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,13 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.networking.R;
+import com.example.networking.models.Contact;
 import com.example.networking.models.Product;
-import com.example.networking.untils.LoadBitMap;
 import com.squareup.picasso.Picasso;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
@@ -44,9 +37,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.tv_name.setText(arrayList.get(position).getName());
         holder.tv_category.setText(arrayList.get(position).getCategory());
-        holder.tv_price.setText(arrayList.get(position).getPrice());
+        holder.tv_price.setText(String.valueOf(arrayList.get(position).getPrice()));
 
-        Picasso.get().load(arrayList.get(position).getImageUrl()).resize(300,300).into(holder.image_view);
+        Picasso.get().load(arrayList.get(position).getImageURL()).resize(300,300).into(holder.image_view);
     }
 
 

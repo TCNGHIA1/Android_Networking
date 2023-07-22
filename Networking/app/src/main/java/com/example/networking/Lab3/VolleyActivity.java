@@ -20,8 +20,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class VolleyActivity extends AppCompatActivity {
-    String urlObj ="http://192.168.15.136:3000/products/get/4" ;
-    String urlArray ="http://192.168.15.136:3000/products/all";
+    String urlObj ="http://192.168.15.136:5000/api/lab3/object" ;
+    String urlArray ="http://192.168.15.136:5000/api/lab3/array";
 
     private static String TAG = VolleyActivity.class.getSimpleName();
     private ProgressDialog progressDialog;
@@ -63,12 +63,16 @@ public class VolleyActivity extends AppCompatActivity {
                         JSONObject object = (JSONObject)response.get(i);
 
                         String name = object.getString("name");
-                        String category = object.getString("category");
-                        String price = object.getString("price");
+                        String email = object.getString("email");
+                        JSONObject phone = object.getJSONObject("phone");
+
+                        String mobile = phone.getString("mobile");
+                        String home = phone.getString("home");
 
                         jsonResponse += "Name: "+name +"\n\n";
-                        jsonResponse += "Category: "+category +"\n\n";
-                        jsonResponse += "Price: "+price +"\n\n\n";
+                        jsonResponse += "Email: "+email +"\n\n";
+                        jsonResponse += "Mobile: "+mobile +"\n\n";
+                        jsonResponse += "Home: "+home +"\n\n\n";
                     }
                     tv_result.setText(jsonResponse);
                 } catch (Exception e) {
@@ -80,7 +84,6 @@ public class VolleyActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(VolleyActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
                 hiddenDialog();
             }
         });
@@ -110,12 +113,14 @@ public class VolleyActivity extends AppCompatActivity {
                 jsonResponse ="";
                 try{
                     String name = response.getString("name");
-                    String category = response.getString("category");
-                    String price = response.getString("price");
+                    String category = response.getString("email");
+                    JSONObject phone = response.getJSONObject("phone");
+
+                    String mobile = phone.getString("mobile");
 
                     jsonResponse += "Name: "+name +"\n\n";
-                    jsonResponse += "Category: "+category +"\n\n";
-                    jsonResponse += "Price: "+price +"\n\n";
+                    jsonResponse += "Email: "+category +"\n\n";
+                    jsonResponse += "Mobile: "+mobile +"\n\n";
                 tv_result.setText(jsonResponse);
                 }
             catch (Exception e){
@@ -126,7 +131,6 @@ public class VolleyActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(VolleyActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
                 hiddenDialog();
             }
         });

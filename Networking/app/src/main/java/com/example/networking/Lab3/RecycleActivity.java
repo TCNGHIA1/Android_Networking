@@ -10,9 +10,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.networking.DAO.ProductList;
 import com.example.networking.R;
 import com.example.networking.adapter.RecyclerAdapter;
+import com.example.networking.models.Contact;
 import com.example.networking.models.Product;
 import com.example.networking.untils.ApiService;
 import com.example.networking.untils.InternetConnection;
@@ -30,16 +30,16 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RecycleActivity extends AppCompatActivity {
     FloatingActionButton fab;
     RecyclerView recyclerView;
-    List<Product> products;
+    List<Product> contacts;
     RecyclerAdapter adapter;
 
-    String URL = "http:192.168.15.136:3000/";
+    String URL = "http:192.168.15.136:5000/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycle);
 
-        products = new ArrayList<>();
+        contacts = new ArrayList<>();
 
         fab = findViewById(R.id.fab);
         recyclerView = findViewById(R.id.recycler_view);
@@ -60,7 +60,7 @@ public class RecycleActivity extends AppCompatActivity {
                         .build();
                 ApiService apiService = retrofit.create(ApiService.class);
 
-                Call<List<Product>> call = apiService.getAllProducts("");
+                Call<List<Product>> call = apiService.getAllProducts();
                 call.enqueue(new Callback<List<Product>>() {
                     @Override
                     public void onResponse(@NonNull Call<List<Product>> call, @NonNull Response<List<Product>> response) {
@@ -68,8 +68,8 @@ public class RecycleActivity extends AppCompatActivity {
                         Log.i("CHECK response", response.toString());
                         if(response.isSuccessful()){
                             // binding adapter
-                            products = response.body();
-                            adapter = new RecyclerAdapter(products);
+                            contacts = response.body();
+                            adapter = new RecyclerAdapter(contacts);
                             recyclerView.setAdapter(adapter);
                         }else{
                             Toast.makeText(RecycleActivity.this, "Something wrong", Toast.LENGTH_SHORT).show();

@@ -1,73 +1,20 @@
 package com.example.networking.models;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
 public class Product {
-    @SerializedName("id")
-    @Expose
     int id;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-    @SerializedName("name")
-    @Expose
     String name;
-    @SerializedName("description")
-    @Expose
-        String description ;
-    @SerializedName("imageURL")
-    @Expose
-    String imageURL ;
-    @SerializedName("category")
-    @Expose
-        String category ;
-    @SerializedName("price")
-    @Expose
-        String price;
-    @SerializedName("quantity")
-    @Expose
-        String quantity;
-
+    String category;
+    double price;
+    int quantity;
+    String imageURL;
     public Product(){}
-
-    public Product(int id,String name, String description, String imageUrl, String category, String price, String quantity) {
-        this.name = name;
+    public Product(int id, String name, double price, int quantity,String category, String imageURL) {
         this.id = id;
-        this.description = description;
-        this.imageURL = imageUrl;
+        this.name = name;
         this.category = category;
         this.price = price;
         this.quantity = quantity;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getImageUrl() {
-        return imageURL;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageURL = imageUrl;
+        this.imageURL = imageURL;
     }
 
     public String getCategory() {
@@ -78,19 +25,43 @@ public class Product {
         this.category = category;
     }
 
-    public String getPrice() {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
-    public String getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
 }
