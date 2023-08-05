@@ -18,6 +18,26 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".lab7.SocketIPActivity"
+            android:exported="false" />
+        <activity
+            android:name=".lab7.MainLab7Activity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".lab7.SockerSeverActivity"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".lab6.MainLab6Activity"
+            android:exported="true" />
+        <activity
             android:name=".Lab3.RecycleActivity"
             android:exported="false" />
         <activity
@@ -28,18 +48,10 @@
             android:exported="false" />
         <activity
             android:name=".Lab3.MainLab3Activity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".Lab2.MainLab2Activity"
-            android:exported="true">
-
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".Lab2.MathActivity"
             android:exported="false" />
